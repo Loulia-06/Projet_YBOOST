@@ -1,11 +1,13 @@
-import Hero from "../components/hero"; 
+import Hero from "../components/hero";
 import Recettes from "../components/recettes";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="container mx-auto px-4">
+  
       <Hero />
-      <Recettes /> 
-    </main>
+      <Recettes />
+      
+    </div>
   );
-}
+} 
