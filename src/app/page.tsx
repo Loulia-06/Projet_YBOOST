@@ -1,3 +1,4 @@
+//ici c'est la page d'accueil ( le home )
 import Hero from "../components/hero";
 import Recettes from "../components/recettes";
 

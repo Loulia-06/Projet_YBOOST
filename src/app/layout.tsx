@@ -1,3 +1,4 @@
+// c'est la structure de la page le layout
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+  // ici children est entre guillemets (le header et le footer)
   children,
 }: Readonly<{
   children: React.ReactNode;
