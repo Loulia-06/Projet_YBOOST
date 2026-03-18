@@ -21,12 +21,12 @@ export default function Hero() {
         <div className="flex justify-center space-x-4">
           <Link 
             href="/recettes" 
-            className="bg-orange-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-700 transition"
+            className="bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition"
           >
             Voir les recettes
           </Link>
           
-          <button className="bg-white text-orange-600 border border-orange-600 px-8 py-3 rounded-full font-semibold hover:bg-orange-50 transition">
+          <button className="bg-white text-green-600 border border-green-600 px-8 py-3 rounded-full font-semibold hover:bg-green-50 transition">
             En savoir plus
           </button>
         </div>
