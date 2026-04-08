@@ -14,8 +14,9 @@ const connectDB = async () => {
 export async function GET() {
     try {
         await connectDB()
-        const recettes = await Recette.find({}) //  Plus de données en dur !
-        return NextResponse.json(recettes, { status: 200 })
+        // .lean() renvoie des objets JS simples ; on convertit _id en string
+       const recettes = (await Recette.find({}).lean()).map((r: any) => ({ ...r, _id: r._id.toString() }))
+       return NextResponse.json(recettes, { status: 200 })
     } catch (error) {
         console.error("Erreur:", error)
         return NextResponse.json(
@@ -33,8 +34,8 @@ export async function POST(request: Request) {
         
         const nouvelleRecette = await Recette.create({
             name: body.name,
-            description: body.description,
             image: body.image,
+            description: body.description,
             category: body.category,
         })
         

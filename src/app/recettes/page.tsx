@@ -24,7 +24,7 @@ export default async function RecettesPage() {
             </h3>
             <Link 
               href={`/recettes/${recette.id}`} 
-              className="text-orange-600 font-semibold hover:underline inline-block mt-2"
+              className="text-green-600 font-semibold hover:underline inline-block mt-2"
             >
               Voir la recette →
             </Link>

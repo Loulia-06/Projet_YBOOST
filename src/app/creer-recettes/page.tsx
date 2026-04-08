@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 
 export default function CreerRecettePage() {
   const [name, setName] = useState('')
+  const [image, setImage] = useState('')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('')
   const [message, setMessage] = useState<string | null>(null)
@@ -21,11 +22,14 @@ export default function CreerRecettePage() {
 
     setLoading(true)
     try {
-      const res = await fetch('/api/recettes', { // Attention à la route ici, elle doit correspondre à celle de votre API 
+       const res = await fetch('/api/recettes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, description, category }),
+        body: JSON.stringify({ name, description, category, image }),
       })
+
+      const data = await res.json()
+      console.log('Recette créée (serveur):', data)
 
       if (res.ok) {
         setMessage('Recette créée avec succès.')
@@ -53,6 +57,11 @@ export default function CreerRecettePage() {
           <input value={name} onChange={e => setName(e.target.value)} placeholder="Nom de la recette" />
         </div>
 
+        <div>
+          <label>Image</label><br />
+          <input value={image} onChange={e => setImage(e.target.value)} placeholder="URL de l'image" />
+        </div>
+    
         <div>
           <label>Description</label><br />
           <textarea value={description} onChange={e => setDescription(e.target.value)} placeholder="Décris la recette" />
