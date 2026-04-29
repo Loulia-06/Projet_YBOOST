@@ -14,16 +14,15 @@ export default async function RecettesPage() {
       </h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {recettes.map((recette: { id: number; name: string }) => (
-          <div 
-            key={recette.id} 
+        {recettes.map((recette: { _id: string; name: string }) => (
+          <div key={recette._id} 
             className="border rounded-lg p-6 shadow-sm hover:shadow-md transition bg-white"
           >
             <h3 className="text-xl font-bold mb-2 text-gray-800">
               {recette.name}
             </h3>
             <Link 
-              href={`/recettes/${recette.id}`} 
+              href={`/recettes/${recette._id}`} 
               className="text-green-600 font-semibold hover:underline inline-block mt-2"
             >
               Voir la recette →

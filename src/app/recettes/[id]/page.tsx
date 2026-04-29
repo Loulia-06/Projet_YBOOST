@@ -8,12 +8,15 @@ const connectDB = async () => {
   }
 }
 
-type Props = { params: { id: string } }
+type Props = { params: Promise<{ id: string }> }
 
 export default async function RecettePage({ params }: Props) {
+  // On attend que les paramètres soient résolus
+  const { id } = await params; 
+
   await connectDB()
 
-  const id = params.id
+  // On utilise directement l'id qu'on vient de récupérer
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return <main style={{ padding: 20 }}>ID invalide</main>
   }
